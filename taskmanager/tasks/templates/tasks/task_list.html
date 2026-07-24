@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Task Manager</title>
+</head>
+<body>
+    <h1>Task Manager</h1>
+    <hr>
+    <h2>Task List</h2>
+    {% for task in tasks %}
+        <p>
+            <a href="{% url 'task_detail' task.id %}">{{task.title}}</a>
+        </p>
+    {% empty %}
+        <p>No Tasks Available</p>
+    {% endfor %}        
+</body>
+</html>
