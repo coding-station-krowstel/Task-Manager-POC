@@ -31,4 +31,19 @@ def add_task(request):
         form=TaskForm()
     return render(request,"tasks/add_task.html",{"form":form})         
 
+def edit_task(request, pk):
+    task = Task.objects.get(pk=pk)
+    if request.method=="POST":
+        task.title = request.POST["title"]
+        task.description = request.POST["description"]
+        task.status = request.POST["status"]
+        task.save()
+        return redirect("task_list")
+    return render(request,"tasks/edit_task.html",{"task":task})
+
+def delete_task(request, pk):
+    task = Task.objects.get(pk=pk)
+    task.delete()
+    return redirect("task_list")
+
 
