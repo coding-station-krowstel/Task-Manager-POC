@@ -6,6 +6,8 @@
 <body>
     <h1>Task Manager</h1>
     <hr>
+    <a href="{% url 'add_task' %}">Add New Task</a>
+    <hr>
     <h2>Task List</h2>
     {% for task in tasks %}
         <p>
