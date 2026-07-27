@@ -34,12 +34,13 @@ def add_task(request):
 def edit_task(request, pk):
     task = Task.objects.get(pk=pk)
     if request.method=="POST":
-        task.title = request.POST["title"]
-        task.description = request.POST["description"]
-        task.status = request.POST["status"]
-        task.save()
-        return redirect("task_list")
-    return render(request,"tasks/edit_task.html",{"task":task})
+       form = TaskForm(request.POST,instance=task)
+       if form.is_valid():
+           form.save()
+           return redirect("task_list")
+    else:
+        form = TaskForm(instance=task)
+    return render(request,"tasks/edit_task.html",{"form":form})       
 
 def delete_task(request, pk):
     task = Task.objects.get(pk=pk)

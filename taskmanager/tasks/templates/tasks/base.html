@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Task Manager</title>
+
+    <style>
+        body{
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 30px;
+        }
+
+        .container{
+            max-width: 800px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        h1{
+            color: darkblue;
+        }
+
+        a{
+            text-decoration: none;
+            margin-right: 10px;
+        }
+
+        button{
+            padding:8px 15px;
+        }
+
+        hr{
+            margin:15px 0;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Task Manager</h1>
+
+<hr>
+
+<a href="{% url 'task_list' %}">Home</a>
+<a href="{% url 'add_task' %}">Add Task</a>
+
+<hr>
+
+{% block content %}
+
+{% endblock %}
+
+</div>
+
+</body>
+</html>

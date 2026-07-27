@@ -1,13 +1,5 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Task Manager</title>
-</head>
-<body>
-    <h1>Task Manager</h1>
-    <hr>
-    <a href="{% url 'add_task' %}">Add New Task</a>
-    <hr>
+{% extends 'tasks/base.html' %}
+{% block content %}
     <h2>Task List</h2>
     {% for task in tasks %}
         <p>
@@ -16,5 +8,4 @@
     {% empty %}
         <p>No Tasks Available</p>
     {% endfor %}        
-</body>
-</html>
+{% endblock %}
